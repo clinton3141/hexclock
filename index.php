@@ -37,7 +37,7 @@ function hextime ()
 
 			WHO BUILT THIS?
 				- umm, well, it says in the footer, but if you insist, it was
-				made by me, Clinton Montague.
+				made by me, Clinton - @iblamefish.
 
 			WHY?
 				- why not?
@@ -63,7 +63,7 @@ function hextime ()
 		-->
 
 		<title>Hexclock - an experiment in visualising time</title>
-		<meta name="author" content="Clinton Montague (@iblamefish)" />
+		<meta name="author" content="Clinton - @iblamefish" />
 		<meta name="generator" content="vim" />
 		<style>
 			body
