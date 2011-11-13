@@ -57,6 +57,8 @@ function hextime ()
 				- I was being artistic and wanted to think of a new way to
 				visualist time.
 
+				I also just wanted to write some JavaScript
+
 			WHAT DOES IT DO?
 				- it changes the background colour of the page based on the
 				time of day. This means that each second has a different colour.
