@@ -73,6 +73,7 @@ function hextime ()
 		<meta name="author" content="Clinton - @iblamefish" />
 		<meta name="generator" content="vim" />
 		<meta name="description" content="A whole new way to visualise time by using the hours, minutes and seconds to generate a hex colours for the background, a different colour for each second of the day." />
+		<meta name="x-project-codename" content="0xC" />
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript">
 
