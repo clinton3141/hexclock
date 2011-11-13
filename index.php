@@ -35,6 +35,13 @@ function hextime ()
 
 			Things you might want to know:
 
+			WHY IS IT CALLED HEX CLOCK?
+				- it converts the hours, minutes and seconds of the day into
+				three sets of two digit hexadecimal numbers. These are used
+				to set the red, green and blue colours of the background.
+
+				Neat, huh?
+
 			WHO BUILT THIS?
 				- umm, well, it says in the footer, but if you insist, it was
 				made by me, Clinton - @iblamefish.
@@ -65,6 +72,7 @@ function hextime ()
 		<title>Hexclock - an experiment in visualising time</title>
 		<meta name="author" content="Clinton - @iblamefish" />
 		<meta name="generator" content="vim" />
+		<meta name="description" content="A whole new way to visualise time by using the hours, minutes and seconds to generate a hex colours for the background, a different colour for each second of the day." />
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript">
 
