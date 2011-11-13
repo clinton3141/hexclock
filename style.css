@@ -1,3 +1,19 @@
+::selection
+{
+	background-color: #000;
+}
+
+::-moz-selection
+{
+	background-color: #000;
+}
+
+::-webkit-selection
+{
+	background-color: #000;
+}
+
+
 body
 {
 	text-align: center;
