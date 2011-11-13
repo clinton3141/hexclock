@@ -2,7 +2,9 @@
 	var	clock,
 		seconds,
 		minutes,
-		hours;
+		hours,
+		colons,
+		previousSecond = 0;
 
 	if (typeof Array.prototype.map !== "function") {
 		Array.prototype.map = function (callback) {
@@ -48,8 +50,24 @@
 		hours.innerHTML = stringify(h);
 		minutes.innerHTML = stringify(m);
 		seconds.innerHTML = stringify(s);
+		if (s !== previousSecond) {
+			flash();
+		}
+		previousSecond = s;
 
 		document.body.style.backgroundColor = getBackgroundColor (h, m, s);
+	}
+
+	function flash () {
+		var len = colons.length;
+		while (len--) {
+			var colon = colons[len];
+			if (colon.style.visibility === "hidden") {
+				colon.style.visibility = "visible";
+			} else {
+				colon.style.visibility = "hidden";
+			}
+		}
 	}
 
 	function init () {
@@ -57,6 +75,7 @@
 		seconds = $("seconds");
 		minutes = $("minutes");
 		hours = $("hours");
+		colons = document.querySelectorAll && document.querySelectorAll(".colon") || [];
 
 		document.body.removeChild ($("message"));
 
