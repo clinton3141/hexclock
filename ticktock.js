@@ -4,6 +4,19 @@ var	background = document.body.style,
 	minutes,
 	hours;
 
+if (typeof Array.prototype.map !== "function") {
+	Array.prototype.map = function (callback) {
+		var r = [],
+			length = this.length;
+
+		for (var i = 0; i < length; i++) {
+			r.push(callback(this[i]));
+		}
+		return r;
+	};
+}
+
+
 function $ (id) {
 	return document.getElementById(id);
 }
