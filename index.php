@@ -29,7 +29,7 @@ function hextime ()
 ?><!DOCTYPE HTML>
 <html lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta charset="utf-8" />
 		<!--
 			Hello inquisitive view-source people!
 
@@ -92,22 +92,24 @@ function hextime ()
 		<h1>Hex Clock</h1>
 		<p id="message">You need JavaScript enabled for the full hexclock experience!</p>
 		<p id="clock"><span id="hours"><?php echo date('H'); ?></span>:<span id="minutes"><?php echo date('i'); ?></span>:<span id="seconds"><?php echo date('s'); ?></span></p>
-		<p>An experiment in visualising time by <a href="http://slightlymore.co.uk/">Clinton Montague</a></p>
+		<p>An experiment in visualising time by <a href="http://slightlymore.co.uk/">Clinton</a></p>
 
 
-		<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
-		<a href="http://github.com/slightlymore/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
-		<div class="g-plusone" data-size="medium"></div>
-		<script src="ticktock.js"></script>
-		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-		<script type="text/javascript">
-		  window.___gcfg = {lang: 'en-GB'};
+		<aside>
+			<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
+			<a href="http://github.com/slightlymore/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
+			<div class="g-plusone" data-size="medium"></div>
+			<script src="ticktock.js"></script>
+			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+			<script type="text/javascript">
+			  window.___gcfg = {lang: 'en-GB'};
 
-		  (function() {
-			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-			po.src = 'https://apis.google.com/js/plusone.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
+			  (function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+		</aside>
 	</body>
 </html>
