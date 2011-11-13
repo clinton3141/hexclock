@@ -65,6 +65,7 @@ function hextime ()
 		<title>Hexclock - an experiment in visualising time</title>
 		<meta name="author" content="Clinton - @iblamefish" />
 		<meta name="generator" content="vim" />
+		<link rel="stylesheet" href="/font/digitaldream.css" />
 		<style>
 			body
 			{
@@ -82,9 +83,11 @@ function hextime ()
 				font-size: 160px;
 				font-weight: normal;
 				letter-spacing: -2px;
+				font-family: DigitaldreamRegular;
 			}
 			#clock
 			{
+				font-family: DigitaldreamRegular;
 				margin-top: 100px;
 				font-size: 72px;
 			}
