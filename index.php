@@ -65,37 +65,7 @@ function hextime ()
 		<title>Hexclock - an experiment in visualising time</title>
 		<meta name="author" content="Clinton - @iblamefish" />
 		<meta name="generator" content="vim" />
-		<link rel="stylesheet" href="/font/digitaldream.css" />
-		<style>
-			body
-			{
-				text-align: center;
-				font-family: sans-serif;
-				background-color: rgb(<?php hextime(); ?>);
-				color: #fff;
-				text-shadow: rgba(0,0,0,0.3) 1px 1px 2px,
-							rgba(0,0,0,0.3) -1px -1px 2px,
-							rgba(0,0,0,0.3) -1px 1px 2px,
-							rgba(0,0,0,0.3) 1px -1px 2px;
-			}
-			h1
-			{
-				font-size: 160px;
-				font-weight: normal;
-				letter-spacing: -2px;
-				font-family: DigitaldreamRegular;
-			}
-			#clock
-			{
-				font-family: DigitaldreamRegular;
-				margin-top: 100px;
-				font-size: 72px;
-			}
-			a
-			{
-				color: #fff;
-			}
-		</style>
+		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
@@ -120,64 +90,7 @@ function hextime ()
 		<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
 		<a href="http://github.com/slightlymore/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
 		<div class="g-plusone" data-size="medium"></div>
-		<script>
-			var	background = document.body.style,
-				clock,
-				seconds,
-				minutes,
-				hours;
-
-			function $ (id) {
-				return document.getElementById(id);
-			}
-
-			function init () {
-				clock = $("clock");
-				seconds = $("seconds");
-				minutes = $("minutes");
-				hours = $("hours");
-
-				document.body.removeChild ($("message"));
-
-				tick ();
-				setInterval (tick, 500);
-			}
-
-			function normalise (scalar, maxValue, divisions) {
-				return parseFloat(scalar, 10) * maxValue / divisions;
-			}
-
-			function getBackgroundColor (h, m, s) {
-				h = normalise (h, 255, 24);
-				m = normalise (m, 255, 60);
-				s = normalise (s, 255, 60);
-				var time = [h, m, s].map (stringify);
-				return "rgb(" + time.join(",") + ")";
-			}
-
-			function stringify (number) {
-				number = ~~number;
-				if (number < 10) {
-					number = "0" + number;
-				}
-				return number;
-			}
-
-			function tick () {
-				var time = new Date(),
-					s = time.getSeconds (),
-					m = time.getMinutes (),
-					h = time.getHours ();
-				hours.innerHTML = stringify(h);
-				minutes.innerHTML = stringify(m);
-				seconds.innerHTML = stringify(s);
-
-				document.body.style.backgroundColor = getBackgroundColor (h, m, s);
-			}
-
-
-			init ();
-		</script>
+		<script src="ticktock.js"></script>
 		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 		<script type="text/javascript">
 		  window.___gcfg = {lang: 'en-GB'};
