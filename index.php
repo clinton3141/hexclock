@@ -76,7 +76,10 @@ function hextime ()
 		<meta name="generator" content="vim" />
 		<meta name="description" content="A whole new way to visualise time by using the hours, minutes and seconds to generate a hex colours for the background, a different colour for each second of the day." />
 		<meta name="x-project-codename" content="0xC" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="stylesheet" href="style.css" />
+		<link rel="apple-touch-icon" href="touch-icon.png"/>
+		<link rel="shortcut icon" href="/favicon.ico" />
 		<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
@@ -100,7 +103,7 @@ function hextime ()
 
 		<aside>
 			<div class="fb-like" data-href="http://hexclock.slightlymore.co.uk/" data-send="false" data-layout="button_count" data-width="112" data-show-faces="true"></div>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="iblamefish">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="iblamefish">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe><iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=hexclock&show_count=false" style="width:150px; height:20px;"></iframe>
 			<a href="http://github.com/slightlymore/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
 			<div class="g-plusone" data-size="medium"></div>
 			<script src="ticktock.js"></script>
