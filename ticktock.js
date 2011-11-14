@@ -4,7 +4,8 @@
 		minutes,
 		hours,
 		colons,
-		previousSecond = 0;
+		previousSecond = 0,
+		displayHex = false;
 
 	if (typeof Array.prototype.map !== "function") {
 		Array.prototype.map = function (callback) {
@@ -26,12 +27,21 @@
 		return parseFloat(scalar, 10) * maxValue / divisions;
 	}
 
-	function stringify (number) {
+	function stringify (number, hexOutput) {
+		var string = "";
 		number = ~~number;
-		if (number < 10) {
-			number = "0" + number;
+		if (hexOutput) {
+			string = number.toString(16);
+			if (number < 0x10) {
+				string = "0" + string;
+			}
+		} else {
+			string = "" + number;
+			if (number < 10) {
+				string = "0" + number;
+			}
 		}
-		return number;
+		return string;
 	}
 
 	function getBackgroundColor (h, m, s) {
@@ -47,9 +57,16 @@
 			s = time.getSeconds (),
 			m = time.getMinutes (),
 			h = time.getHours ();
-		hours.innerHTML = stringify(h);
-		minutes.innerHTML = stringify(m);
-		seconds.innerHTML = stringify(s);
+		// needs a bit of a tidy up here
+		if (displayHex) {
+			hours.innerHTML = stringify(normalise(h, 255, 24), true);
+			minutes.innerHTML = stringify(normalise(m, 255, 60), true);
+			seconds.innerHTML = stringify(normalise(s, 255, 60), true);
+		} else {
+			hours.innerHTML = stringify(h);
+			minutes.innerHTML = stringify(m);
+			seconds.innerHTML = stringify(s);
+		}
 		if (s !== previousSecond) {
 			flash();
 		}
@@ -78,6 +95,10 @@
 		colons = document.querySelectorAll && document.querySelectorAll(".colon") || [];
 
 		document.body.removeChild ($("message"));
+
+		document.addEventListener ("click", function (event) {
+				displayHex = !displayHex;
+			}, false);
 
 		tick ();
 		setInterval (tick, 200);
