@@ -30,7 +30,7 @@
 	function stringify (number, hexOutput) {
 		var string = "";
 		number = ~~number;
-		if (hexOutput) {
+		if (hexOutput === true) {
 			string = number.toString(16);
 			if (number < 0x10) {
 				string = "0" + string;
