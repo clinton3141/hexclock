@@ -104,7 +104,7 @@ function hextime ()
 		<aside>
 			<div class="fb-like" data-href="http://hexclock.slightlymore.co.uk/" data-send="false" data-layout="button_count" data-width="112" data-show-faces="true"></div>
 		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="iblamefish">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
-			<a href="http://github.com/slightlymore/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+			<a href="http://github.com/iblamefish/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 			<div class="g-plusone" data-size="medium"></div>
 			<script src="ticktock.js"></script>
 			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
