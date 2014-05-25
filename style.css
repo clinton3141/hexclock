@@ -24,6 +24,10 @@ body
 				rgba(0,0,0,0.3) -1px -1px 2px,
 				rgba(0,0,0,0.3) -1px 1px 2px,
 				rgba(0,0,0,0.3) 1px -1px 2px;
+	-webkit-transition: background 1s linear;
+	-moz-transition: background 1s linear;
+	-ms-transition: background 1s linear;
+	transition: background 1s linear;
 }
 h1
 {

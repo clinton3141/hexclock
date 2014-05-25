@@ -1,4 +1,10 @@
 <?php
+if (isset($_GET['style'])):
+  header("Content-Type: text/css");
+  include ("./style.css");
+  die();
+endif;
+
 $hours = time('H');
 $minutes = time ('i');
 $seconds = time ('s');
@@ -15,16 +21,16 @@ function stringify ($number)
 
 function normalise ($number, $maxValue, $divisions)
 {
-	return $number * $maxValue / $divisions;
+	return intval($number) * intval($maxValue) / intval($divisions);
 }
 
 function hextime ()
 {
-	$h = normalise (time('H'), 255, 24);
-	$m = normalise (time('i'), 255, 60);
-	$s = normalise (time('s'), 255, 60);
+	$h = intval(normalise (date('G'), 255, 24));
+	$m = intval(normalise (date('i'), 255, 60));
+	$s = intval(normalise (date('s'), 255, 60));
 
-	echo "0,0,0";
+	echo "$h,$m,$s";
 }
 ?><!DOCTYPE HTML>
 <html lang="en">
@@ -77,7 +83,7 @@ function hextime ()
 		<meta name="description" content="A whole new way to visualise time by using the hours, minutes and seconds to generate a hex colours for the background, a different colour for each second of the day." />
 		<meta name="x-project-codename" content="0xC" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<link rel="stylesheet" href="style.css" />
+		<link type="text/css" rel="stylesheet" href="?style" />
 		<link rel="apple-touch-icon" href="touch-icon.png"/>
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<script type="text/javascript">
