@@ -1,108 +1,84 @@
-(function () {
-	var	clock,
-		seconds,
-		minutes,
-		hours,
-		colons,
-		previousSecond = 0,
-		displayHex = false;
+(() => {
+	let displayHex = false;
+	let previousSecond = 0;
 
-	if (typeof Array.prototype.map !== "function") {
-		Array.prototype.map = function (callback) {
-			var r = [],
-				length = this.length;
+	const $ = (id) => document.getElementById(id);
 
-			for (var i = 0; i < length; i++) {
-				r.push(callback(this[i]));
-			}
-			return r;
-		};
-	}
+	const normalise = (scalar, maxValue, divisions) =>
+		Math.floor(parseFloat(scalar, 10) * maxValue / divisions);
 
-	function $ (id) {
-		return document.getElementById(id);
-	}
-
-	function normalise (scalar, maxValue, divisions) {
-		return parseFloat(scalar, 10) * maxValue / divisions;
-	}
-
-	function stringify (number, hexOutput) {
-		var string = "";
-		number = ~~number;
-		if (hexOutput === true) {
-			string = number.toString(16);
-			if (number < 0x10) {
-				string = "0" + string;
-			}
-		} else {
-			string = "" + number;
-			if (number < 10) {
-				string = "0" + number;
-			}
+	const stringify = (number, hexOutput = false) => {
+		const num = ~~number;
+		if (hexOutput) {
+			return num.toString(16).padStart(2, '0');
 		}
-		return string;
-	}
+		return num.toString().padStart(2, '0');
+	};
 
-	function getBackgroundColor (h, m, s) {
-		h = normalise (h, 255, 24);
-		m = normalise (m, 255, 60);
-		s = normalise (s, 255, 60);
-		var time = [h, m, s].map (stringify);
-		return "rgb(" + time.join(",") + ")";
-	}
+	const getBackgroundColor = (h, m, s) => {
+		const normH = normalise(h, 255, 24);
+		const normM = normalise(m, 255, 60);
+		const normS = normalise(s, 255, 60);
+		return `rgb(${normH},${normM},${normS})`;
+	};
 
-	function tick () {
-		var time = new Date(),
-			s = time.getSeconds (),
-			m = time.getMinutes (),
-			h = time.getHours ();
-		// needs a bit of a tidy up here
+	const flash = () => {
+		const colons = document.querySelectorAll('.colon');
+		colons.forEach(colon => {
+			colon.style.visibility = colon.style.visibility === 'hidden' ? 'visible' : 'hidden';
+		});
+	};
+
+	const tick = () => {
+		const time = new Date();
+		const s = time.getSeconds();
+		const m = time.getMinutes();
+		const h = time.getHours();
+
+		const hours = $('hours');
+		const minutes = $('minutes');
+		const seconds = $('seconds');
+
 		if (displayHex) {
-			hours.innerHTML = stringify(normalise(h, 255, 24), true);
-			minutes.innerHTML = stringify(normalise(m, 255, 60), true);
-			seconds.innerHTML = stringify(normalise(s, 255, 60), true);
+			hours.textContent = stringify(normalise(h, 255, 24), true);
+			minutes.textContent = stringify(normalise(m, 255, 60), true);
+			seconds.textContent = stringify(normalise(s, 255, 60), true);
 		} else {
-			hours.innerHTML = stringify(h);
-			minutes.innerHTML = stringify(m);
-			seconds.innerHTML = stringify(s);
+			hours.textContent = stringify(h);
+			minutes.textContent = stringify(m);
+			seconds.textContent = stringify(s);
 		}
+
 		if (s !== previousSecond) {
 			flash();
+			previousSecond = s;
 		}
-		previousSecond = s;
 
-		document.body.style.backgroundColor = getBackgroundColor (h, m, s);
-	}
+		document.body.style.backgroundColor = getBackgroundColor(h, m, s);
+	};
 
-	function flash () {
-		var len = colons.length;
-		while (len--) {
-			var colon = colons[len];
-			if (colon.style.visibility === "hidden") {
-				colon.style.visibility = "visible";
-			} else {
-				colon.style.visibility = "hidden";
-			}
+	const init = () => {
+		// Remove "need JavaScript" message
+		const message = $('message');
+		if (message) {
+			message.remove();
 		}
+
+		// Toggle between hex and normal time display on click
+		document.addEventListener('click', () => {
+			displayHex = !displayHex;
+			tick(); // Update immediately
+		}, { passive: true });
+
+		// Initial tick and set up interval
+		tick();
+		setInterval(tick, 1000);
+	};
+
+	// Start when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
 	}
-
-	function init () {
-		clock = $("clock");
-		seconds = $("seconds");
-		minutes = $("minutes");
-		hours = $("hours");
-		colons = document.querySelectorAll && document.querySelectorAll(".colon") || [];
-
-		document.body.removeChild ($("message"));
-
-		document.addEventListener ("click", function (event) {
-				displayHex = !displayHex;
-			}, false);
-
-		tick ();
-		setInterval (tick, 200);
-	}
-
-	init ();
 })();
