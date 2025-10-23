@@ -5,9 +5,9 @@ if (isset($_GET['style'])):
   die();
 endif;
 
-$hours = time('H');
-$minutes = time ('i');
-$seconds = time ('s');
+$hours = date('H');
+$minutes = date('i');
+$seconds = date('s');
 
 function stringify ($number)
 {
@@ -109,29 +109,10 @@ function hextime ()
 
 		<aside>
 			<div class="fb-like" data-href="http://hexclock.slightlymore.co.uk/" data-send="false" data-layout="button_count" data-width="112" data-show-faces="true"></div>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="iblamefish">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="iblamefish">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>	<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=iblamefish&show_count=false" style="width:150px; height:20px;"></iframe>
 			<a href="http://github.com/iblamefish/hexclock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 			<div class="g-plusone" data-size="medium"></div>
 			<script src="ticktock.js"></script>
-			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-			<script type="text/javascript">
-			  window.___gcfg = {lang: 'en-GB'};
-
-			  (function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = 'https://apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			  })();
-			</script>
-
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) {return;}
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=155450177843536";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
 		</aside>
 	</body>
 </html>
