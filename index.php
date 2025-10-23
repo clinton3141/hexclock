@@ -95,7 +95,7 @@ function hextime ()
 
 
 		<aside>
-			<a href="http://github.com/iblamefish/hexclock">Github</a>
+			<a href="http://github.com/clinton3141/hexclock">Source on Github</a>
 			<script src="ticktock.js"></script>
 		</aside>
 	</body>
